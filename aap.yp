@@ -1,0 +1,36 @@
+import os
+import telebot
+
+BOT_TOKEN = os.environ["9024050414:AAGPCjnylI4TEPRyng75qPXpQSY3sBBa-hg"]
+
+bot = telebot.TeleBot(BOT_TOKEN)
+
+@bot.message_handler(commands=['start'])
+def start(message):
+    bot.reply_to(
+        message,
+        "🔥 Welcome to PRINCE FREE LIKE BOT 07!\n\n"
+        "Commands:\n"
+        "/info UID - Player details\n"
+        "/like UID - Like service status"
+    )
+
+@bot.message_handler(commands=['info'])
+def info(message):
+    bot.reply_to(
+        message,
+        "Player details API is not connected yet.\n"
+        "An authorized API is required."
+    )
+
+@bot.message_handler(commands=['like'])
+def like(message):
+    bot.reply_to(
+        message,
+        "Like service is currently unavailable.\n"
+        "An authorized Garena API is required."
+    )
+
+print("PRINCE FREE LIKE BOT 07 is running!")
+
+bot.infinity_polling()
